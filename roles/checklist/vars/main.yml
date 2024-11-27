@@ -1,0 +1,6 @@
+pacotes:
+  - net-tools
+  - htop
+  - telnet
+  - nmap
+

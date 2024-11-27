@@ -1,0 +1,39 @@
+# ================== WEB SERVERS ================================= #
+[web_f01]
+vm_ubuntu	ansible_host=192.168.1.55 ansible_user=vagrant ansible_ssh_private_key_file=/home/allan/.ssh/id_ed25519
+
+# ================= DB SERVERS =================================== #
+[db_f01]
+vm_centos	ansible_host=192.168.1.55 ansible_user=vagrant ansible_ssh_private_key_file=/home/allan/.ssh/id_ed25519
+
+# ================= FILESERVER ================================== #
+[fileserver]
+vm_windows	ansible_host=192.168.1.57
+
+# ================ OS =========================================== #
+[servidores_windows]
+vm_windows	ansible_host=192.168.1.57
+
+[servidores_ubuntu]
+vm_ubuntu	ansible_host=192.168.1.55
+
+[servidores_centos]
+vm_centos	ansible_host=192.168.1.56
+
+# =============== FILIAIS ======================================= #
+[filial_01:children]
+web_f01
+db_f01
+fileserver
+
+# ============= VARIAVEIS DE GRUPO ============================= #
+
+[filial_01:vars]
+ansible_user=vagrant
+#ansible_password=(setar o password aqui)
+#ansible_port=(setar a porta aqui)
+
+# ============================================================================================================================== #
+# Link para mais variáveis:
+# https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters
+# =============================================================================================================================== #

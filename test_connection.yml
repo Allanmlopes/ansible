@@ -1,0 +1,5 @@
+- hosts: web_f01
+  tasks:
+    - name: Testar Conexão
+      ping:
+

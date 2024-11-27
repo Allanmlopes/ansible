@@ -1,0 +1,16 @@
+---
+- name: Instalando pacotes essenciais no Ubuntu
+  apt:
+    name: "{{ pacotes }}"
+    state: present
+  become: true
+  when: ansible_os_family == "Debian"
+
+- name: Instalando pacotes essenciais no CentOS
+  yum:
+    name: "{{ pacotes }}"
+    state: present
+  become: true
+  when: ansible_os_family == "RedHat"
+
+
